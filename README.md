@@ -1,5 +1,3 @@
-![MOI](https://moi-js.s3.amazonaws.com/moi-banner.png)
-
 [![npm](https://img.shields.io/npm/v/js-mal-sdk?style=for-the-badge&color=red)](https://www.npmjs.com/package/js-mal-sdk)
 [![ci](https://img.shields.io/github/actions/workflow/status/sarvalabs/js-mal-sdk/ci.yml?branch=main&style=for-the-badge&label=ci)](https://github.com/sarvalabs/js-mal-sdk/actions/workflows/ci.yml)
 ![license](https://img.shields.io/badge/license-MIT%2FApache--2.0-informational?style=for-the-badge)
