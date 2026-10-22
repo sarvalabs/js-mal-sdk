@@ -1,0 +1,460 @@
+coco AuthorityRegistry
+
+// The MOI Authority Layer registry, as specified in mal.md (version 1).
+// Section references (§) point into that document.
+//
+// The registry is the store of record. It enforces only what no client can:
+// who may write a record (the DID's controller), who may revoke one, that
+// records are append-only and that revocation is final, and the §2.8 limits
+// that bound what a verifier reads. Shape, chain structure and
+// attenuation are checked by the SDK before a write and re-proven by the
+// SDK's resolver on every read (§3.7), so a record that skips them never
+// resolves (§3.1, §3.3).
+
+const:
+    VERSION U64 = 1
+
+    // §2.8
+    MAX_SCOPE_ENTRIES U64 = 64
+    MAX_ACTIONS_PER_ENTRY U64 = 64
+    MAX_CONSTRAINTS_PER_ENTRY U64 = 32
+    MAX_GRANTEES U64 = 32
+    MAX_DELEGATION_DEPTH U64 = 16
+    // Bytes in the context, a DID or an id (§2.8).
+    MAX_STRING_BYTES U64 = 256
+
+
+    // Constraint kinds (§2.3). The wire form is a struct with one field per kind.
+    STRING U64 = 1
+    NUMBER U64 = 2
+    BOOLEAN U64 = 3
+    STRINGS U64 = 4
+    NUMBERS U64 = 5
+    REF U64 = 6
+
+    // An id is "<prefix>_<64 hex digits>_<seq>" (§2.2).
+    ID_OWNER_START U64 = 4
+    ID_OWNER_END U64 = 68
+
+class Constraint:
+    field key String
+    field kind U64
+    field text String
+    field number U64
+    field flag Bool
+    field texts []String
+    field numbers []U64
+
+class ScopeEntry:
+    field resource String
+    field actions []String
+    field constraints []Constraint
+
+// §2.4. `revoked_at` is 0 while the record is live; §2.4's `status` is derived
+// from it ("revoked" when it is set). A read reports it from the record, or
+// from the registry's revocations when someone else revoked it (§3.5).
+class Grant:
+    field version U64
+    field grant_id String
+    field context String
+    field grantor_did String
+    field grantees []String
+    field scope []ScopeEntry
+    field max_delegation_depth U64
+    field created_at U64
+    field expires_at U64
+    // 0 when not revoked (null in §2.4).
+    field revoked_at U64
+
+// §2.5
+class Delegation:
+    field version U64
+    field delegation_id String
+    field grant_id String
+    field parent_id String
+    field depth U64
+    field delegator_did String
+    field delegatee_did String
+    field scope []ScopeEntry
+    field can_delegate Bool
+    field created_at U64
+    field expires_at U64
+    field revoked_at U64
+
+// §3.8
+event Enlisted:
+    topic address Identifier
+
+event GrantCreated:
+    topic grant_id String
+    topic grantor_did String
+    field context String
+
+event GrantRevoked:
+    topic grant_id String
+
+event DelegationCreated:
+    topic delegation_id String
+    topic grant_id String
+    field delegator_did String
+    field delegatee_did String
+
+event DelegationRevoked:
+    topic delegation_id String
+    topic grant_id String
+
+// §1.6: the identity layer answers controllerOf and isActive.
+interface IdentityLayer:
+    endpoint:
+        static ControllerOf(did String) -> (controller Identifier)
+        static IsActive(did String) -> (active Bool)
+
+// `revocations` holds the revocations written by someone other than the
+// record's owner: a root grantor's prune (§3.6), or a DID's new controller
+// revoking what the old account holds (§3.5). They live in the registry's own
+// state, so the owner can't block them by withholding an access policy. A
+// revocation by the record's owner is written to the record itself, in the
+// owner's own account (§3.5, §3.6).
+state logic:
+    identity Identifier
+    revocations Map[String]U64
+
+// §2.6. `enlisted` marks a slice initialised by Enlist (§3.2).
+state actor:
+    enlisted Bool
+    grants Map[String]Grant
+    grant_ids []String
+    grant_seq U64
+    delegations Map[String]Delegation
+    delegation_ids []String
+    delegation_seq U64
+
+endpoint deploy Init(identity Identifier):
+    mutate identity -> AuthorityRegistry.Logic.identity payer Logic
+
+// §3.2. No access policy is published: revocations by anyone but a record's
+// owner are kept in the registry's own state (§3.6).
+endpoint dynamic Enlist():
+    memory already = false
+    observe enlisted <- AuthorityRegistry.Sender.enlisted:
+        already = enlisted
+    if already:
+        return
+    mutate true -> AuthorityRegistry.Sender.enlisted
+    emit Enlisted{address: Sender}
+
+// §3.3. The registry checks the sender and the §2.8 counts; the SDK checks the
+// rest of the shape and the parties before sending (§3.3).
+endpoint dynamic CreateGrant(
+    context String,
+    grantor_did String,
+    grantees []String,
+    scope []ScopeEntry,
+    max_delegation_depth U64,
+    expires_at U64,
+) -> (grant_id String):
+    if len(grantees) > MAX_GRANTEES:
+        throw "INVALID_SHAPE: grantees exceeds MAX_GRANTEES"
+    if max_delegation_depth > MAX_DELEGATION_DEPTH:
+        throw "INVALID_SHAPE: maxDelegationDepth exceeds MAX_DELEGATION_DEPTH"
+    if len(context) > MAX_STRING_BYTES:
+        throw "INVALID_SHAPE: context exceeds MAX_STRING_BYTES"
+    if len(grantor_did) > MAX_STRING_BYTES:
+        throw "INVALID_SHAPE: grantorDid exceeds MAX_STRING_BYTES"
+    for i, grantee in grantees:
+        if len(grantee) > MAX_STRING_BYTES:
+            throw f"INVALID_SHAPE: grantees[{i}] exceeds MAX_STRING_BYTES"
+    CheckScopeLimits(scope: scope)
+    RequireEnlisted()
+    AuthorizeDid(did: grantor_did)
+
+    memory seq U64
+    mutate grant_seq <- AuthorityRegistry.Sender.grant_seq:
+        grant_seq += 1
+        seq = grant_seq
+    memory id = f"grt_{Sender}_{seq}"
+
+    memory grant = Grant{
+        version: VERSION,
+        grant_id: id,
+        context: context,
+        grantor_did: grantor_did,
+        grantees: grantees,
+        scope: scope,
+        max_delegation_depth: max_delegation_depth,
+        created_at: (now) <- Now(),
+        expires_at: expires_at,
+    }
+    mutate grants <- AuthorityRegistry.Sender.grants:
+        disperse grants[id] <- grant
+    mutate grant_ids <- AuthorityRegistry.Sender.grant_ids:
+        append(grant_ids, id)
+
+    emit GrantCreated{grant_id: id, grantor_did: grantor_did, context: context}
+    grant_id = id
+
+// §3.3. `delegator_did` and `depth` are explicit (§3.3). The
+// registry does not read the parent: the SDK checks the parent, the holder,
+// the depth and the narrowing before sending, and the resolver re-proves each
+// link, so a delegation written without them resolves as BROKEN_CHAIN.
+endpoint dynamic CreateDelegation(
+    grant_id String,
+    parent_id String,
+    depth U64,
+    delegator_did String,
+    delegatee_did String,
+    scope []ScopeEntry,
+    can_delegate Bool,
+    expires_at U64,
+) -> (delegation_id String):
+    if depth == 0 || depth > MAX_DELEGATION_DEPTH:
+        throw "INVALID_SHAPE: depth is out of range"
+    if len(grant_id) > MAX_STRING_BYTES:
+        throw "INVALID_SHAPE: grantId exceeds MAX_STRING_BYTES"
+    if len(parent_id) > MAX_STRING_BYTES:
+        throw "INVALID_SHAPE: parentId exceeds MAX_STRING_BYTES"
+    if len(delegator_did) > MAX_STRING_BYTES:
+        throw "INVALID_SHAPE: delegatorDid exceeds MAX_STRING_BYTES"
+    if len(delegatee_did) > MAX_STRING_BYTES:
+        throw "INVALID_SHAPE: delegateeDid exceeds MAX_STRING_BYTES"
+    CheckScopeLimits(scope: scope)
+    RequireEnlisted()
+    AuthorizeDid(did: delegator_did)
+
+    memory seq U64
+    mutate delegation_seq <- AuthorityRegistry.Sender.delegation_seq:
+        delegation_seq += 1
+        seq = delegation_seq
+    memory id = f"del_{Sender}_{seq}"
+
+    memory delegation = Delegation{
+        version: VERSION,
+        delegation_id: id,
+        grant_id: grant_id,
+        parent_id: parent_id,
+        depth: depth,
+        delegator_did: delegator_did,
+        delegatee_did: delegatee_did,
+        scope: scope,
+        can_delegate: can_delegate,
+        created_at: (now) <- Now(),
+        expires_at: expires_at,
+    }
+    mutate delegations <- AuthorityRegistry.Sender.delegations:
+        disperse delegations[id] <- delegation
+    mutate delegation_ids <- AuthorityRegistry.Sender.delegation_ids:
+        append(delegation_ids, id)
+
+    emit DelegationCreated{delegation_id: id, grant_id: grant_id, delegator_did: delegator_did, delegatee_did: delegatee_did}
+    delegation_id = id
+
+// §3.5: the grantor DID's current controller, wherever the grant is stored.
+// If the grant is stored elsewhere (the controller has changed), the
+// revocation goes to the registry's own state, so it lands even if the old
+// account has been lost or turned hostile.
+endpoint dynamic RevokeGrant(grant_id String):
+    memory found, grant = (found, grant) <- LoadGrant(id: grant_id)
+    if !found:
+        throw "UNKNOWN_GRANT"
+    if !((ok) <- IsController(did: grant.grantor_did)):
+        throw "NOT_AUTHORIZED_TO_REVOKE"
+    if grant.revoked_at > 0:
+        throw "ALREADY_REVOKED"
+    memory now = Now()
+    // §2.7: an expired record cannot be revoked.
+    if now >= grant.expires_at:
+        throw "GRANT_EXPIRED"
+    if ((owner) <- OwnerOf(id: grant_id)) == Sender:
+        mutate grants <- AuthorityRegistry.Sender.grants:
+            grants[grant_id].revoked_at = now
+    else:
+        RecordElsewhere(id: grant_id, now: now)
+    emit GrantRevoked{grant_id: grant_id}
+
+// §3.5 and §3.6: the delegator's controller, or the root grantor's controller.
+// A prune goes to the registry's own state, so a delegator can't keep the root
+// grantor from pruning its link.
+endpoint dynamic RevokeDelegation(delegation_id String):
+    memory found, delegation = (found, delegation) <- LoadDelegation(id: delegation_id)
+    if !found:
+        throw "UNKNOWN_DELEGATION"
+    if !((ok) <- IsController(did: delegation.delegator_did)):
+        memory root_found, root = (found, grant) <- LoadGrant(id: delegation.grant_id)
+        if !root_found || !((ok) <- IsController(did: root.grantor_did)):
+            throw "NOT_AUTHORIZED_TO_REVOKE"
+    if delegation.revoked_at > 0:
+        throw "ALREADY_REVOKED"
+    memory now = Now()
+    if now >= delegation.expires_at:
+        throw "DELEGATION_EXPIRED"
+    if ((owner) <- OwnerOf(id: delegation_id)) == Sender:
+        mutate delegations <- AuthorityRegistry.Sender.delegations:
+            delegations[delegation_id].revoked_at = now
+    else:
+        RecordElsewhere(id: delegation_id, now: now)
+    emit DelegationRevoked{delegation_id: delegation_id, grant_id: delegation.grant_id}
+
+// --- reads (§3.7 is run by the SDK over these) --------------------------------
+
+endpoint static GetGrant(grant_id String) -> (found Bool, grant Grant):
+    found, grant = (found, grant) <- LoadGrant(id: grant_id)
+
+endpoint static GetDelegation(delegation_id String) -> (found Bool, delegation Delegation):
+    found, delegation = (found, delegation) <- LoadDelegation(id: delegation_id)
+
+endpoint static ListGrants(address Identifier, offset U64, limit U64) -> (grant_ids []String, total U64):
+    if !Actor(address).Exists():
+        return
+    observe ids <- AuthorityRegistry.Actor(address).grant_ids:
+        grant_ids, total = (page, total) <- Page(ids: ids, offset: offset, limit: limit)
+
+endpoint static ListDelegations(address Identifier, offset U64, limit U64) -> (delegation_ids []String, total U64):
+    if !Actor(address).Exists():
+        return
+    observe ids <- AuthorityRegistry.Actor(address).delegation_ids:
+        delegation_ids, total = (page, total) <- Page(ids: ids, offset: offset, limit: limit)
+
+// Not in mal.md: lets clients check §3.2 enlistment before issuing.
+endpoint static IsEnlisted(address Identifier) -> (enlisted Bool):
+    if !Actor(address).Exists():
+        return
+    observe flag <- AuthorityRegistry.Actor(address).enlisted:
+        enlisted = flag
+
+endpoint static GetIdentity() -> (identity Identifier):
+    observe identity <- AuthorityRegistry.Logic.identity
+
+// §3.7: the bound identity layer's answers, so the SDK can check parties
+// (§3.3 client steps b and g) without a manifest for the identity logic.
+endpoint static ControllerOf(did String) -> (controller Identifier):
+    memory layer = IdentityLayer((identity) <- IdentityId())
+    controller = (controller) <- layer.ControllerOf(did: did)
+
+endpoint static IsActive(did String) -> (active Bool):
+    memory layer = IdentityLayer((identity) <- IdentityId())
+    active = (active) <- layer.IsActive(did: did)
+
+// --- route-and-read (§2.2) ------------------------------------------------------
+// The owner segment of an id only says where to look. A record is genuine
+// because it exists in that account's state under exactly that id.
+
+function static LoadGrant(id String) -> (found Bool, grant Grant):
+    if ((prefix) <- PrefixOf(id: id)) != "grt":
+        return (found: false)
+    memory owner = (owner) <- OwnerOf(id: id)
+    if !Actor(owner).Exists():
+        return (found: false)
+    memory exists = false
+    memory record Grant
+    observe grants <- AuthorityRegistry.Actor(owner).grants:
+        if grants[id]?:
+            exists = true
+            gather record <- grants[id]
+    if !exists:
+        return (found: false)
+    if record.revoked_at == 0:
+        record.revoked_at = (revoked_at) <- RevokedAt(id: id)
+    found = true
+    grant = record
+
+function static LoadDelegation(id String) -> (found Bool, delegation Delegation):
+    if ((prefix) <- PrefixOf(id: id)) != "del":
+        return (found: false)
+    memory owner = (owner) <- OwnerOf(id: id)
+    if !Actor(owner).Exists():
+        return (found: false)
+    memory exists = false
+    memory record Delegation
+    observe delegations <- AuthorityRegistry.Actor(owner).delegations:
+        if delegations[id]?:
+            exists = true
+            gather record <- delegations[id]
+    if !exists:
+        return (found: false)
+    if record.revoked_at == 0:
+        record.revoked_at = (revoked_at) <- RevokedAt(id: id)
+    found = true
+    delegation = record
+
+// --- revocations (§2.7, §3.5) -----------------------------------------------
+
+// 0 when `id` is not revoked.
+function static RevokedAt(id String) -> (revoked_at U64):
+    observe revocations <- AuthorityRegistry.Logic.revocations:
+        if revocations[id]?:
+            revoked_at = revocations[id]
+
+// The registry's balance backs the entry: a MOI node discards a write to a
+// logic's state that the sender pays for. Keep the registry funded
+// (§3.6).
+function dynamic RecordElsewhere(id String, now U64):
+    mutate revocations <- AuthorityRegistry.Logic.revocations payer Logic:
+        revocations[id] = now
+
+// "grt" or "del", or "" when the id is too short to carry an owner.
+function pure PrefixOf(id String) -> (prefix String):
+    if len(id) <= ID_OWNER_END + 1:
+        return (prefix: "")
+    memory head = id[0:4]
+    if head == "grt_":
+        return (prefix: "grt")
+    if head == "del_":
+        return (prefix: "del")
+    prefix = ""
+
+function pure OwnerOf(id String) -> (owner Identifier):
+    owner = Identifier(id[ID_OWNER_START:ID_OWNER_END])
+
+function pure Page(ids []String, offset U64, limit U64) -> (page []String, total U64):
+    memory count = len(ids)
+    memory slice []String
+    for i in range(limit):
+        if offset + i >= count:
+            break
+        append(slice, ids[offset + i])
+    page = slice
+    total = count
+
+// --- authorization (§3.1) -------------------------------------------------------
+
+function static IdentityId() -> (identity Identifier):
+    observe id <- AuthorityRegistry.Logic.identity:
+        identity = id
+
+function static RequireEnlisted():
+    memory enlisted = false
+    observe flag <- AuthorityRegistry.Sender.enlisted:
+        enlisted = flag
+    if !enlisted:
+        throw "NOT_ENLISTED"
+
+function static IsController(did String) -> (ok Bool):
+    memory layer = IdentityLayer((identity) <- IdentityId())
+    ok = ((controller) <- layer.ControllerOf(did: did)) == Sender
+
+// The sender must control the DID and the DID must be active.
+function static AuthorizeDid(did String):
+    memory layer = IdentityLayer((identity) <- IdentityId())
+    if ((controller) <- layer.ControllerOf(did: did)) != Sender:
+        throw "NOT_CONTROLLER"
+    if !((active) <- layer.IsActive(did: did)):
+        throw "UNKNOWN_PARTY"
+
+// --- §2.8 limits -----------------------------------------------------------------
+// The only shape the registry checks: the counts, and the size of the strings
+// outside the scope (above). These cost a few comparisons per record. Sizes
+// inside the scope (each string, each list, the whole scope) are the SDK's:
+// checking them here cost about 40% more fuel per write, and a record past
+// them never resolves anyway (§2.8).
+
+function pure CheckScopeLimits(scope []ScopeEntry):
+    if len(scope) > MAX_SCOPE_ENTRIES:
+        throw "INVALID_SHAPE: scope exceeds MAX_SCOPE_ENTRIES"
+    for i, entry in scope:
+        if len(entry.actions) > MAX_ACTIONS_PER_ENTRY:
+            throw f"INVALID_SHAPE: scope[{i}].actions exceeds MAX_ACTIONS_PER_ENTRY"
+        if len(entry.constraints) > MAX_CONSTRAINTS_PER_ENTRY:
+            throw f"INVALID_SHAPE: scope[{i}].constraints exceeds MAX_CONSTRAINTS_PER_ENTRY"
+
+function pure Now() -> (now U64):
+    now = Environment.Timestamp() / 1000000000

@@ -1,0 +1,65 @@
+coco MoiIdentity
+
+// The identity layer for the MOI Authority Layer (mal.md §1.6), with
+// self-certifying DIDs. Every MOI account `a` has the DID "did:moi:<a>" (a's
+// 64 hex digits) from the start: controlled by `a`, active, with no
+// registration. Nobody can register, squat or claim the DID of an account they
+// don't control, and control never moves: a DID's controller is always its own
+// account. The account can turn its DID off and on again.
+
+const:
+    PREFIX String = "did:moi:"
+    DID_LENGTH U64 = 72
+
+// A MOI node won't deploy a logic with no logic state. This field is never
+// written or read.
+state logic:
+    reserved U64
+
+// Written by an account about its own DID only. Absent means active.
+state actor:
+    inactive Bool
+
+endpoint deploy Init():
+    pass
+
+endpoint pure DidOf(account Identifier) -> (did String):
+    did = f"{PREFIX}{account}"
+
+// §1.6. The DID's own account; zero for a string that isn't a did:moi DID.
+endpoint pure ControllerOf(did String) -> (controller Identifier):
+    memory ok, home = (ok, home) <- Home(did: did)
+    if ok:
+        controller = home
+
+// §1.6. False for a string that isn't a did:moi DID.
+endpoint static IsActive(did String) -> (active Bool):
+    memory ok, home = (ok, home) <- Home(did: did)
+    if !ok:
+        return (active: false)
+    memory off = false
+    if Actor(home).Exists():
+        observe inactive <- MoiIdentity.Actor(home).inactive:
+            off = inactive
+    active = !off
+
+// Turns the sender's own DID on or off.
+endpoint dynamic SetActive(did String, flag Bool):
+    memory ok, home = (ok, home) <- Home(did: did)
+    if !ok:
+        throw "UNKNOWN_DID"
+    if home != Sender:
+        throw "NOT_DID_CONTROLLER"
+    memory off = !flag
+    mutate off -> MoiIdentity.Sender.inactive
+
+// --- internals ---------------------------------------------------------------
+
+// The DID's home account, or ok:false when `did` isn't "did:moi:" + 64 characters.
+function pure Home(did String) -> (ok Bool, home Identifier):
+    if len(did) != DID_LENGTH:
+        return (ok: false)
+    if did[0:8] != PREFIX:
+        return (ok: false)
+    ok = true
+    home = Identifier(did[8:DID_LENGTH])
