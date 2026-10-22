@@ -1,0 +1,2155 @@
+syntax: 1
+engine:
+  kind: PISA
+  flags: []
+  version: 0.8.0
+kind: logic
+elements:
+- ptr: 0
+  kind: literal
+  data:
+    type: u64
+    value: '0x0301'
+- ptr: 1
+  kind: literal
+  data:
+    type: u64
+    value: '0x0340'
+- ptr: 2
+  kind: literal
+  data:
+    type: u64
+    value: '0x0320'
+- ptr: 3
+  kind: literal
+  data:
+    type: u64
+    value: '0x0310'
+- ptr: 4
+  kind: literal
+  data:
+    type: u64
+    value: '0x030100'
+- ptr: 5
+  kind: literal
+  data:
+    type: u64
+    value: '0x0302'
+- ptr: 6
+  kind: literal
+  data:
+    type: u64
+    value: '0x0303'
+- ptr: 7
+  kind: literal
+  data:
+    type: u64
+    value: '0x0304'
+- ptr: 8
+  kind: literal
+  data:
+    type: u64
+    value: '0x0305'
+- ptr: 9
+  kind: literal
+  data:
+    type: u64
+    value: '0x0306'
+- ptr: 10
+  kind: literal
+  data:
+    type: u64
+    value: '0x0344'
+- ptr: 11
+  kind: literal
+  data:
+    type: string
+    value: '0x06494e56414c49445f53484150453a206772616e746565732065786365656473204d41585f4752414e54454553'
+- ptr: 12
+  kind: literal
+  data:
+    type: string
+    value: '0x06494e56414c49445f53484150453a206d617844656c65676174696f6e44657074682065786365656473204d41585f44454c45474154494f4e5f4445505448'
+- ptr: 13
+  kind: literal
+  data:
+    type: string
+    value: '0x06494e56414c49445f53484150453a20636f6e746578742065786365656473204d41585f535452494e475f4259544553'
+- ptr: 14
+  kind: literal
+  data:
+    type: string
+    value: '0x06494e56414c49445f53484150453a206772616e746f724469642065786365656473204d41585f535452494e475f4259544553'
+- ptr: 15
+  kind: literal
+  data:
+    type: string
+    value: '0x06494e56414c49445f53484150453a206772616e746565735b'
+- ptr: 16
+  kind: literal
+  data:
+    type: string
+    value: '0x065d2065786365656473204d41585f535452494e475f4259544553'
+- ptr: 17
+  kind: literal
+  data:
+    type: string
+    value: '0x066772745f'
+- ptr: 18
+  kind: literal
+  data:
+    type: string
+    value: '0x065f'
+- ptr: 19
+  kind: literal
+  data:
+    type: string
+    value: '0x06494e56414c49445f53484150453a206465707468206973206f7574206f662072616e6765'
+- ptr: 20
+  kind: literal
+  data:
+    type: string
+    value: '0x06494e56414c49445f53484150453a206772616e7449642065786365656473204d41585f535452494e475f4259544553'
+- ptr: 21
+  kind: literal
+  data:
+    type: string
+    value: '0x06494e56414c49445f53484150453a20706172656e7449642065786365656473204d41585f535452494e475f4259544553'
+- ptr: 22
+  kind: literal
+  data:
+    type: string
+    value: '0x06494e56414c49445f53484150453a2064656c656761746f724469642065786365656473204d41585f535452494e475f4259544553'
+- ptr: 23
+  kind: literal
+  data:
+    type: string
+    value: '0x06494e56414c49445f53484150453a2064656c6567617465654469642065786365656473204d41585f535452494e475f4259544553'
+- ptr: 24
+  kind: literal
+  data:
+    type: string
+    value: '0x0664656c5f'
+- ptr: 25
+  kind: literal
+  data:
+    type: string
+    value: '0x06554e4b4e4f574e5f4752414e54'
+- ptr: 26
+  kind: literal
+  data:
+    type: string
+    value: '0x064e4f545f415554484f52495a45445f544f5f5245564f4b45'
+- ptr: 27
+  kind: literal
+  data:
+    type: string
+    value: '0x06414c52454144595f5245564f4b4544'
+- ptr: 28
+  kind: literal
+  data:
+    type: string
+    value: '0x064752414e545f45585049524544'
+- ptr: 29
+  kind: literal
+  data:
+    type: string
+    value: '0x06554e4b4e4f574e5f44454c45474154494f4e'
+- ptr: 30
+  kind: literal
+  data:
+    type: string
+    value: '0x0644454c45474154494f4e5f45585049524544'
+- ptr: 31
+  kind: literal
+  data:
+    type: string
+    value: '0x06677274'
+- ptr: 32
+  kind: literal
+  data:
+    type: string
+    value: '0x0664656c'
+- ptr: 33
+  kind: literal
+  data:
+    type: string
+    value: '0x06'
+- ptr: 34
+  kind: literal
+  data:
+    type: string
+    value: '0x064e4f545f454e4c4953544544'
+- ptr: 35
+  kind: literal
+  data:
+    type: string
+    value: '0x064e4f545f434f4e54524f4c4c4552'
+- ptr: 36
+  kind: literal
+  data:
+    type: string
+    value: '0x06554e4b4e4f574e5f5041525459'
+- ptr: 37
+  kind: literal
+  data:
+    type: string
+    value: '0x06494e56414c49445f53484150453a2073636f70652065786365656473204d41585f53434f50455f454e5452494553'
+- ptr: 38
+  kind: literal
+  data:
+    type: string
+    value: '0x06494e56414c49445f53484150453a2073636f70655b'
+- ptr: 39
+  kind: literal
+  data:
+    type: string
+    value: '0x065d2e616374696f6e732065786365656473204d41585f414354494f4e535f5045525f454e545259'
+- ptr: 40
+  kind: literal
+  data:
+    type: string
+    value: '0x065d2e636f6e73747261696e74732065786365656473204d41585f434f4e53545241494e54535f5045525f454e545259'
+- ptr: 41
+  kind: literal
+  data:
+    type: u64
+    value: '0x033b9aca00'
+- ptr: 42
+  kind: typedef
+  data: '[]string'
+- ptr: 43
+  kind: typedef
+  data: map[string]u64
+- ptr: 44
+  deps:
+  - 49
+  kind: typedef
+  data: map[string]class.Grant
+- ptr: 45
+  deps:
+  - 50
+  kind: typedef
+  data: map[string]class.Delegation
+- ptr: 46
+  kind: typedef
+  data: '[]u64'
+- ptr: 47
+  kind: class
+  data:
+    name: Constraint
+    fields:
+    - slot: 0
+      label: key
+      type: string
+    - slot: 1
+      label: kind
+      type: u64
+    - slot: 2
+      label: text
+      type: string
+    - slot: 3
+      label: number
+      type: u64
+    - slot: 4
+      label: flag
+      type: bool
+    - slot: 5
+      label: texts
+      type: '[]string'
+    - slot: 6
+      label: numbers
+      type: '[]u64'
+    methods: []
+- ptr: 48
+  deps:
+  - 47
+  kind: class
+  data:
+    name: ScopeEntry
+    fields:
+    - slot: 0
+      label: resource
+      type: string
+    - slot: 1
+      label: actions
+      type: '[]string'
+    - slot: 2
+      label: constraints
+      type: '[]class.Constraint'
+    methods: []
+- ptr: 49
+  deps:
+  - 48
+  kind: class
+  data:
+    name: Grant
+    fields:
+    - slot: 0
+      label: version
+      type: u64
+    - slot: 1
+      label: grant_id
+      type: string
+    - slot: 2
+      label: context
+      type: string
+    - slot: 3
+      label: grantor_did
+      type: string
+    - slot: 4
+      label: grantees
+      type: '[]string'
+    - slot: 5
+      label: scope
+      type: '[]class.ScopeEntry'
+    - slot: 6
+      label: max_delegation_depth
+      type: u64
+    - slot: 7
+      label: created_at
+      type: u64
+    - slot: 8
+      label: expires_at
+      type: u64
+    - slot: 9
+      label: revoked_at
+      type: u64
+    methods: []
+- ptr: 50
+  deps:
+  - 48
+  kind: class
+  data:
+    name: Delegation
+    fields:
+    - slot: 0
+      label: version
+      type: u64
+    - slot: 1
+      label: delegation_id
+      type: string
+    - slot: 2
+      label: grant_id
+      type: string
+    - slot: 3
+      label: parent_id
+      type: string
+    - slot: 4
+      label: depth
+      type: u64
+    - slot: 5
+      label: delegator_did
+      type: string
+    - slot: 6
+      label: delegatee_did
+      type: string
+    - slot: 7
+      label: scope
+      type: '[]class.ScopeEntry'
+    - slot: 8
+      label: can_delegate
+      type: bool
+    - slot: 9
+      label: created_at
+      type: u64
+    - slot: 10
+      label: expires_at
+      type: u64
+    - slot: 11
+      label: revoked_at
+      type: u64
+    methods: []
+- ptr: 51
+  kind: event
+  data:
+    name: Enlisted
+    topics: 1
+    fields:
+    - slot: 0
+      label: address
+      type: identifier
+- ptr: 52
+  kind: event
+  data:
+    name: GrantCreated
+    topics: 2
+    fields:
+    - slot: 0
+      label: grant_id
+      type: string
+    - slot: 1
+      label: grantor_did
+      type: string
+    - slot: 2
+      label: context
+      type: string
+- ptr: 53
+  kind: event
+  data:
+    name: GrantRevoked
+    topics: 1
+    fields:
+    - slot: 0
+      label: grant_id
+      type: string
+- ptr: 54
+  kind: event
+  data:
+    name: DelegationCreated
+    topics: 2
+    fields:
+    - slot: 0
+      label: delegation_id
+      type: string
+    - slot: 1
+      label: grant_id
+      type: string
+    - slot: 2
+      label: delegator_did
+      type: string
+    - slot: 3
+      label: delegatee_did
+      type: string
+- ptr: 55
+  kind: event
+  data:
+    name: DelegationRevoked
+    topics: 2
+    fields:
+    - slot: 0
+      label: delegation_id
+      type: string
+    - slot: 1
+      label: grant_id
+      type: string
+- ptr: 56
+  deps:
+  - 49
+  - 50
+  kind: state
+  data:
+    mode: logic
+    fields:
+    - slot: 0
+      label: identity
+      type: identifier
+    - slot: 1
+      label: revocations
+      type: map[string]u64
+- ptr: 57
+  deps:
+  - 49
+  - 50
+  kind: state
+  data:
+    mode: actor
+    fields:
+    - slot: 0
+      label: enlisted
+      type: bool
+    - slot: 1
+      label: grants
+      type: map[string]class.Grant
+    - slot: 2
+      label: grant_ids
+      type: '[]string'
+    - slot: 3
+      label: grant_seq
+      type: u64
+    - slot: 4
+      label: delegations
+      type: map[string]class.Delegation
+    - slot: 5
+      label: delegation_ids
+      type: '[]string'
+    - slot: 6
+      label: delegation_seq
+      type: u64
+- ptr: 58
+  kind: interface
+  data:
+    name: IdentityLayer
+    endpoint:
+    - name: ControllerOf
+      mode: static
+      accepts:
+      - slot: 0
+        label: did
+        type: string
+      returns:
+      - slot: 0
+        label: controller
+        type: identifier
+    - name: IsActive
+      mode: static
+      accepts:
+      - slot: 0
+        label: did
+        type: string
+      returns:
+      - slot: 0
+        label: active
+        type: bool
+- ptr: 59
+  deps:
+  - 56
+  kind: callable
+  data:
+    name: Init
+    mode: dynamic
+    kind: deploy
+    accepts:
+    - slot: 0
+      label: identity
+      type: identifier
+    returns: []
+    executes:
+      asm:
+      - LOGIC $0
+      - LLOAD $1 &0
+      - VOLPAY $1 $0
+      - OBTAIN $0 &0
+      - DISPER $1 $0
+      - STORE $1
+    catches: []
+- ptr: 60
+  deps:
+  - 51
+  - 57
+  kind: callable
+  data:
+    name: Enlist
+    mode: dynamic
+    kind: invoke
+    accepts: []
+    returns: []
+    executes:
+      asm:
+      - PMAKE $0 &1
+      - ORIGIN $1
+      - ALOAD $2 $1 &0
+      - GATHER $3 $2
+      - COPY $0 $3
+      - DUMP $2
+      - NOT $0 $0
+      - LDPTR1 $1 0xa
+      - JUMPI $1 $0
+      - TERM
+      - DEST
+      - ORIGIN $0
+      - ALOAD $1 $0 &0
+      - PMAKE $2 &1
+      - NOT $2 $2
+      - DISPER $1 $2
+      - STORE $1
+      - CARGS $0
+      - ORIGIN $1
+      - SETFLD $0 &0 $1
+      - LDPTR1 $1 0x33
+      - EVMAKE $0 $1 $0
+      - LOGIC $1
+      - ID $1 $1
+      - EMIT $1 $0
+    catches: []
+- ptr: 61
+  deps:
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 48
+  - 49
+  - 52
+  - 84
+  - 81
+  - 83
+  - 85
+  - 57
+  kind: callable
+  data:
+    name: CreateGrant
+    mode: dynamic
+    kind: invoke
+    accepts:
+    - slot: 0
+      label: context
+      type: string
+    - slot: 1
+      label: grantor_did
+      type: string
+    - slot: 2
+      label: grantees
+      type: '[]string'
+    - slot: 3
+      label: scope
+      type: '[]class.ScopeEntry'
+    - slot: 4
+      label: max_delegation_depth
+      type: u64
+    - slot: 5
+      label: expires_at
+      type: u64
+    returns:
+    - slot: 0
+      label: grant_id
+      type: string
+    executes:
+      asm:
+      - OBTAIN $0 &2
+      - SIZE $1 $0
+      - LDPTR1 $2 0x2
+      - LMAKE $2 $2
+      - GT $1 $1 $2
+      - NOT $1 $1
+      - LDPTR1 $2 0xb
+      - JUMPI $2 $1
+      - LDPTR1 $1 0xb
+      - LMAKE $1 $1
+      - THROW $1
+      - DEST
+      - OBTAIN $1 &4
+      - LDPTR1 $2 0x3
+      - LMAKE $2 $2
+      - GT $2 $1 $2
+      - NOT $2 $2
+      - LDPTR1 $3 0x16
+      - JUMPI $3 $2
+      - LDPTR1 $2 0xc
+      - LMAKE $2 $2
+      - THROW $2
+      - DEST
+      - OBTAIN $2 &0
+      - LEN $3 $2
+      - LDPTR1 $4 0x4
+      - LMAKE $4 $4
+      - GT $3 $3 $4
+      - NOT $3 $3
+      - LDPTR1 $4 0x22
+      - JUMPI $4 $3
+      - LDPTR1 $3 0xd
+      - LMAKE $3 $3
+      - THROW $3
+      - DEST
+      - OBTAIN $3 &1
+      - LEN $4 $3
+      - LDPTR1 $5 0x4
+      - LMAKE $5 $5
+      - GT $4 $4 $5
+      - NOT $4 $4
+      - LDPTR1 $5 0x2e
+      - JUMPI $5 $4
+      - LDPTR1 $4 0xe
+      - LMAKE $4 $4
+      - THROW $4
+      - DEST
+      - PMAKE $4 &5
+      - SIZE $5 $0
+      - DEST
+      - LT $6 $4 $5
+      - NOT $6 $6
+      - LDPTR1 $7 0x4b
+      - JUMPI $7 $6
+      - GETIDX $6 $0 $4
+      - LEN $8 $6
+      - LDPTR1 $9 0x4
+      - LMAKE $9 $9
+      - GT $8 $8 $9
+      - NOT $8 $8
+      - LDPTR1 $9 0x46
+      - JUMPI $9 $8
+      - LDPTR1 $8 0xf
+      - LMAKE $8 $8
+      - STR $9 $4
+      - JOIN $8 $8 $9
+      - LDPTR1 $9 0x10
+      - LMAKE $9 $9
+      - JOIN $8 $8 $9
+      - THROW $8
+      - DEST
+      - DEST
+      - INCR $4
+      - LDPTR1 $7 0x31
+      - JUMP $7
+      - DEST
+      - CARGS $4
+      - OBTAIN $5 &3
+      - SETFLD $4 &0 $5
+      - LDPTR1 $6 0x54
+      - CALLC $4 $6 $4
+      - CARGS $4
+      - LDPTR1 $6 0x51
+      - CALLC $4 $6 $4
+      - CARGS $4
+      - SETFLD $4 &0 $3
+      - LDPTR1 $6 0x53
+      - CALLC $4 $6 $4
+      - PMAKE $4 &5
+      - ORIGIN $6
+      - ALOAD $7 $6 &3
+      - GATHER $8 $7
+      - INCR $8
+      - COPY $4 $8
+      - DISPER $7 $8
+      - STORE $7
+      - LDPTR1 $6 0x11
+      - LMAKE $6 $6
+      - ORIGIN $7
+      - STR $7 $7
+      - JOIN $6 $6 $7
+      - LDPTR1 $7 0x12
+      - LMAKE $7 $7
+      - JOIN $6 $6 $7
+      - STR $4 $4
+      - JOIN $6 $6 $4
+      - COPY $4 $6
+      - LDPTR1 $6 0x31
+      - MAKE $6 $6
+      - PMAKE $7 &5
+      - INCR $7
+      - SETFLD $6 &0 $7
+      - SETFLD $6 &1 $4
+      - SETFLD $6 &2 $2
+      - SETFLD $6 &3 $3
+      - SETFLD $6 &4 $0
+      - SETFLD $6 &5 $5
+      - SETFLD $6 &6 $1
+      - CARGS $0
+      - LDPTR1 $1 0x55
+      - CALLC $0 $1 $0
+      - GETFLD $0 $0 &0
+      - SETFLD $6 &7 $0
+      - OBTAIN $0 &5
+      - SETFLD $6 &8 $0
+      - COPY $0 $6
+      - ORIGIN $1
+      - ALOAD $5 $1 &1
+      - GENKEY $6 $5 $4
+      - GENKEY $6 $5 $4
+      - DISPER $6 $0
+      - SETKEY $5 $4 $6
+      - STORE $5
+      - ORIGIN $0
+      - ALOAD $1 $0 &2
+      - APPEND $1 $4
+      - STORE $1
+      - CARGS $0
+      - SETFLD $0 &0 $4
+      - SETFLD $0 &1 $3
+      - SETFLD $0 &2 $2
+      - LDPTR1 $1 0x34
+      - EVMAKE $0 $1 $0
+      - LOGIC $1
+      - ID $1 $1
+      - EMIT $1 $0
+      - YIELD $4 &0
+    catches: []
+- ptr: 62
+  deps:
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 18
+  - 48
+  - 50
+  - 54
+  - 84
+  - 81
+  - 83
+  - 85
+  - 57
+  kind: callable
+  data:
+    name: CreateDelegation
+    mode: dynamic
+    kind: invoke
+    accepts:
+    - slot: 0
+      label: grant_id
+      type: string
+    - slot: 1
+      label: parent_id
+      type: string
+    - slot: 2
+      label: depth
+      type: u64
+    - slot: 3
+      label: delegator_did
+      type: string
+    - slot: 4
+      label: delegatee_did
+      type: string
+    - slot: 5
+      label: scope
+      type: '[]class.ScopeEntry'
+    - slot: 6
+      label: can_delegate
+      type: bool
+    - slot: 7
+      label: expires_at
+      type: u64
+    returns:
+    - slot: 0
+      label: delegation_id
+      type: string
+    executes:
+      asm:
+      - PMAKE $0 &1
+      - OBTAIN $1 &2
+      - PMAKE $2 &5
+      - EQ $2 $1 $2
+      - OR $0 $0 $2
+      - LDPTR1 $2 0xd
+      - JUMPI $2 $0
+      - LDPTR1 $3 0x3
+      - LMAKE $3 $3
+      - GT $3 $1 $3
+      - OR $0 $0 $3
+      - LDPTR1 $2 0xd
+      - JUMPI $2 $0
+      - DEST
+      - NOT $0 $0
+      - LDPTR1 $2 0x14
+      - JUMPI $2 $0
+      - LDPTR1 $0 0x13
+      - LMAKE $0 $0
+      - THROW $0
+      - DEST
+      - OBTAIN $0 &0
+      - LEN $2 $0
+      - LDPTR1 $3 0x4
+      - LMAKE $3 $3
+      - GT $2 $2 $3
+      - NOT $2 $2
+      - LDPTR1 $3 0x20
+      - JUMPI $3 $2
+      - LDPTR1 $2 0x14
+      - LMAKE $2 $2
+      - THROW $2
+      - DEST
+      - OBTAIN $2 &1
+      - LEN $3 $2
+      - LDPTR1 $4 0x4
+      - LMAKE $4 $4
+      - GT $3 $3 $4
+      - NOT $3 $3
+      - LDPTR1 $4 0x2c
+      - JUMPI $4 $3
+      - LDPTR1 $3 0x15
+      - LMAKE $3 $3
+      - THROW $3
+      - DEST
+      - OBTAIN $3 &3
+      - LEN $4 $3
+      - LDPTR1 $5 0x4
+      - LMAKE $5 $5
+      - GT $4 $4 $5
+      - NOT $4 $4
+      - LDPTR1 $5 0x38
+      - JUMPI $5 $4
+      - LDPTR1 $4 0x16
+      - LMAKE $4 $4
+      - THROW $4
+      - DEST
+      - OBTAIN $4 &4
+      - LEN $5 $4
+      - LDPTR1 $6 0x4
+      - LMAKE $6 $6
+      - GT $5 $5 $6
+      - NOT $5 $5
+      - LDPTR1 $6 0x44
+      - JUMPI $6 $5
+      - LDPTR1 $5 0x17
+      - LMAKE $5 $5
+      - THROW $5
+      - DEST
+      - CARGS $5
+      - OBTAIN $6 &5
+      - SETFLD $5 &0 $6
+      - LDPTR1 $7 0x54
+      - CALLC $5 $7 $5
+      - CARGS $5
+      - LDPTR1 $7 0x51
+      - CALLC $5 $7 $5
+      - CARGS $5
+      - SETFLD $5 &0 $3
+      - LDPTR1 $7 0x53
+      - CALLC $5 $7 $5
+      - PMAKE $5 &5
+      - ORIGIN $7
+      - ALOAD $8 $7 &6
+      - GATHER $9 $8
+      - INCR $9
+      - COPY $5 $9
+      - DISPER $8 $9
+      - STORE $8
+      - LDPTR1 $7 0x18
+      - LMAKE $7 $7
+      - ORIGIN $8
+      - STR $8 $8
+      - JOIN $7 $7 $8
+      - LDPTR1 $8 0x12
+      - LMAKE $8 $8
+      - JOIN $7 $7 $8
+      - STR $5 $5
+      - JOIN $7 $7 $5
+      - COPY $5 $7
+      - LDPTR1 $7 0x32
+      - MAKE $7 $7
+      - PMAKE $8 &5
+      - INCR $8
+      - SETFLD $7 &0 $8
+      - SETFLD $7 &1 $5
+      - SETFLD $7 &2 $0
+      - SETFLD $7 &3 $2
+      - SETFLD $7 &4 $1
+      - SETFLD $7 &5 $3
+      - SETFLD $7 &6 $4
+      - SETFLD $7 &7 $6
+      - OBTAIN $1 &6
+      - SETFLD $7 &8 $1
+      - CARGS $1
+      - LDPTR1 $2 0x55
+      - CALLC $1 $2 $1
+      - GETFLD $1 $1 &0
+      - SETFLD $7 &9 $1
+      - OBTAIN $1 &7
+      - SETFLD $7 &a $1
+      - COPY $1 $7
+      - ORIGIN $2
+      - ALOAD $6 $2 &4
+      - GENKEY $7 $6 $5
+      - GENKEY $7 $6 $5
+      - DISPER $7 $1
+      - SETKEY $6 $5 $7
+      - STORE $6
+      - ORIGIN $1
+      - ALOAD $2 $1 &5
+      - APPEND $2 $5
+      - STORE $2
+      - CARGS $1
+      - SETFLD $1 &0 $5
+      - SETFLD $1 &1 $0
+      - SETFLD $1 &2 $3
+      - SETFLD $1 &3 $4
+      - LDPTR1 $0 0x36
+      - EVMAKE $0 $0 $1
+      - LOGIC $1
+      - ID $1 $1
+      - EMIT $1 $0
+      - YIELD $5 &0
+    catches: []
+- ptr: 63
+  deps:
+  - 25
+  - 26
+  - 27
+  - 28
+  - 53
+  - 73
+  - 82
+  - 85
+  - 78
+  - 76
+  - 57
+  kind: callable
+  data:
+    name: RevokeGrant
+    mode: dynamic
+    kind: invoke
+    accepts:
+    - slot: 0
+      label: grant_id
+      type: string
+    returns: []
+    executes:
+      asm:
+      - CARGS $0
+      - OBTAIN $1 &0
+      - SETFLD $0 &0 $1
+      - LDPTR1 $2 0x49
+      - CALLC $0 $2 $0
+      - GETFLD $2 $0 &0
+      - GETFLD $0 $0 &1
+      - LDPTR1 $3 0xc
+      - JUMPI $3 $2
+      - LDPTR1 $2 0x19
+      - LMAKE $2 $2
+      - THROW $2
+      - DEST
+      - CARGS $2
+      - GETFLD $3 $0 &3
+      - SETFLD $2 &0 $3
+      - LDPTR1 $3 0x52
+      - CALLC $2 $3 $2
+      - GETFLD $2 $2 &0
+      - LDPTR1 $3 0x18
+      - JUMPI $3 $2
+      - LDPTR1 $2 0x1a
+      - LMAKE $2 $2
+      - THROW $2
+      - DEST
+      - GETFLD $2 $0 &9
+      - PMAKE $3 &5
+      - GT $2 $2 $3
+      - NOT $2 $2
+      - LDPTR1 $3 0x22
+      - JUMPI $3 $2
+      - LDPTR1 $2 0x1b
+      - LMAKE $2 $2
+      - THROW $2
+      - DEST
+      - CARGS $2
+      - LDPTR1 $3 0x55
+      - CALLC $2 $3 $2
+      - GETFLD $2 $2 &0
+      - GETFLD $0 $0 &8
+      - LT $0 $2 $0
+      - LDPTR1 $3 0x2e
+      - JUMPI $3 $0
+      - LDPTR1 $0 0x1c
+      - LMAKE $0 $0
+      - THROW $0
+      - DEST
+      - CARGS $0
+      - SETFLD $0 &0 $1
+      - LDPTR1 $3 0x4e
+      - CALLC $0 $3 $0
+      - GETFLD $0 $0 &0
+      - ORIGIN $3
+      - EQ $0 $0 $3
+      - NOT $0 $0
+      - LDPTR1 $3 0x43
+      - JUMPI $3 $0
+      - ORIGIN $0
+      - ALOAD $4 $0 &1
+      - GENKEY $5 $4 $1
+      - GETFLD $6 $5 &9
+      - DISPER $6 $2
+      - SETFLD $5 &9 $6
+      - SETKEY $4 $1 $5
+      - STORE $4
+      - LDPTR1 $3 0x49
+      - JUMP $3
+      - DEST
+      - CARGS $0
+      - SETFLD $0 &0 $1
+      - SETFLD $0 &1 $2
+      - LDPTR1 $2 0x4c
+      - CALLC $0 $2 $0
+      - DEST
+      - CARGS $0
+      - SETFLD $0 &0 $1
+      - LDPTR1 $1 0x35
+      - EVMAKE $0 $1 $0
+      - LOGIC $1
+      - ID $1 $1
+      - EMIT $1 $0
+    catches: []
+- ptr: 64
+  deps:
+  - 29
+  - 26
+  - 27
+  - 30
+  - 55
+  - 74
+  - 82
+  - 73
+  - 85
+  - 78
+  - 76
+  - 57
+  kind: callable
+  data:
+    name: RevokeDelegation
+    mode: dynamic
+    kind: invoke
+    accepts:
+    - slot: 0
+      label: delegation_id
+      type: string
+    returns: []
+    executes:
+      asm:
+      - CARGS $0
+      - OBTAIN $1 &0
+      - SETFLD $0 &0 $1
+      - LDPTR1 $2 0x4a
+      - CALLC $0 $2 $0
+      - GETFLD $2 $0 &0
+      - GETFLD $0 $0 &1
+      - LDPTR1 $3 0xc
+      - JUMPI $3 $2
+      - LDPTR1 $2 0x1d
+      - LMAKE $2 $2
+      - THROW $2
+      - DEST
+      - CARGS $2
+      - GETFLD $3 $0 &5
+      - SETFLD $2 &0 $3
+      - LDPTR1 $3 0x52
+      - CALLC $2 $3 $2
+      - GETFLD $2 $2 &0
+      - LDPTR1 $3 0x33
+      - JUMPI $3 $2
+      - CARGS $2
+      - GETFLD $3 $0 &2
+      - SETFLD $2 &0 $3
+      - LDPTR1 $3 0x49
+      - CALLC $2 $3 $2
+      - GETFLD $3 $2 &0
+      - GETFLD $2 $2 &1
+      - PMAKE $4 &1
+      - NOT $3 $3
+      - OR $4 $4 $3
+      - LDPTR1 $3 0x2b
+      - JUMPI $3 $4
+      - CARGS $5
+      - GETFLD $2 $2 &3
+      - SETFLD $5 &0 $2
+      - LDPTR1 $2 0x52
+      - CALLC $2 $2 $5
+      - GETFLD $2 $2 &0
+      - NOT $2 $2
+      - OR $4 $4 $2
+      - LDPTR1 $3 0x2b
+      - JUMPI $3 $4
+      - DEST
+      - NOT $2 $4
+      - LDPTR1 $3 0x32
+      - JUMPI $3 $2
+      - LDPTR1 $2 0x1a
+      - LMAKE $2 $2
+      - THROW $2
+      - DEST
+      - DEST
+      - GETFLD $2 $0 &b
+      - PMAKE $3 &5
+      - GT $2 $2 $3
+      - NOT $2 $2
+      - LDPTR1 $3 0x3d
+      - JUMPI $3 $2
+      - LDPTR1 $2 0x1b
+      - LMAKE $2 $2
+      - THROW $2
+      - DEST
+      - CARGS $2
+      - LDPTR1 $3 0x55
+      - CALLC $2 $3 $2
+      - GETFLD $2 $2 &0
+      - GETFLD $3 $0 &a
+      - LT $3 $2 $3
+      - LDPTR1 $4 0x49
+      - JUMPI $4 $3
+      - LDPTR1 $3 0x1e
+      - LMAKE $3 $3
+      - THROW $3
+      - DEST
+      - CARGS $3
+      - SETFLD $3 &0 $1
+      - LDPTR1 $4 0x4e
+      - CALLC $3 $4 $3
+      - GETFLD $3 $3 &0
+      - ORIGIN $4
+      - EQ $3 $3 $4
+      - NOT $3 $3
+      - LDPTR1 $4 0x5e
+      - JUMPI $4 $3
+      - ORIGIN $3
+      - ALOAD $5 $3 &4
+      - GENKEY $6 $5 $1
+      - GETFLD $7 $6 &b
+      - DISPER $7 $2
+      - SETFLD $6 &b $7
+      - SETKEY $5 $1 $6
+      - STORE $5
+      - LDPTR1 $4 0x64
+      - JUMP $4
+      - DEST
+      - CARGS $3
+      - SETFLD $3 &0 $1
+      - SETFLD $3 &1 $2
+      - LDPTR1 $2 0x4c
+      - CALLC $2 $2 $3
+      - DEST
+      - CARGS $2
+      - SETFLD $2 &0 $1
+      - GETFLD $0 $0 &2
+      - SETFLD $2 &1 $0
+      - LDPTR1 $0 0x37
+      - EVMAKE $0 $0 $2
+      - LOGIC $1
+      - ID $1 $1
+      - EMIT $1 $0
+    catches: []
+- ptr: 65
+  deps:
+  - 49
+  - 73
+  kind: callable
+  data:
+    name: GetGrant
+    mode: static
+    kind: invoke
+    accepts:
+    - slot: 0
+      label: grant_id
+      type: string
+    returns:
+    - slot: 0
+      label: found
+      type: bool
+    - slot: 1
+      label: grant
+      type: class.Grant
+    executes:
+      asm:
+      - LDPTR1 $0 0x31
+      - MAKE $0 $0
+      - CARGS $1
+      - OBTAIN $2 &0
+      - SETFLD $1 &0 $2
+      - LDPTR1 $2 0x49
+      - CALLC $1 $2 $1
+      - GETFLD $2 $1 &0
+      - GETFLD $0 $1 &1
+      - YIELD $2 &0
+      - YIELD $0 &1
+    catches: []
+- ptr: 66
+  deps:
+  - 50
+  - 74
+  kind: callable
+  data:
+    name: GetDelegation
+    mode: static
+    kind: invoke
+    accepts:
+    - slot: 0
+      label: delegation_id
+      type: string
+    returns:
+    - slot: 0
+      label: found
+      type: bool
+    - slot: 1
+      label: delegation
+      type: class.Delegation
+    executes:
+      asm:
+      - LDPTR1 $0 0x32
+      - MAKE $0 $0
+      - CARGS $1
+      - OBTAIN $2 &0
+      - SETFLD $1 &0 $2
+      - LDPTR1 $2 0x4a
+      - CALLC $1 $2 $1
+      - GETFLD $2 $1 &0
+      - GETFLD $0 $1 &1
+      - YIELD $2 &0
+      - YIELD $0 &1
+    catches: []
+- ptr: 67
+  deps:
+  - 42
+  - 79
+  - 57
+  kind: callable
+  data:
+    name: ListGrants
+    mode: static
+    kind: invoke
+    accepts:
+    - slot: 0
+      label: address
+      type: identifier
+    - slot: 1
+      label: offset
+      type: u64
+    - slot: 2
+      label: limit
+      type: u64
+    returns:
+    - slot: 0
+      label: grant_ids
+      type: '[]string'
+    - slot: 1
+      label: total
+      type: u64
+    executes:
+      asm:
+      - LDPTR1 $0 0x2a
+      - MAKE $0 $0
+      - OBTAIN $1 &0
+      - ACREXIST $2 $1
+      - LDPTR1 $3 0x8
+      - JUMPI $3 $2
+      - YIELD $0 &0
+      - TERM
+      - DEST
+      - ALOAD $2 $1 &2
+      - CARGS $3
+      - SETFLD $3 &0 $2
+      - OBTAIN $4 &1
+      - SETFLD $3 &1 $4
+      - OBTAIN $4 &2
+      - SETFLD $3 &2 $4
+      - LDPTR1 $4 0x4f
+      - CALLC $3 $4 $3
+      - GETFLD $4 $3 &0
+      - GETFLD $3 $3 &1
+      - COPY $0 $4
+      - YIELD $3 &1
+      - DUMP $2
+      - YIELD $0 &0
+    catches: []
+- ptr: 68
+  deps:
+  - 42
+  - 79
+  - 57
+  kind: callable
+  data:
+    name: ListDelegations
+    mode: static
+    kind: invoke
+    accepts:
+    - slot: 0
+      label: address
+      type: identifier
+    - slot: 1
+      label: offset
+      type: u64
+    - slot: 2
+      label: limit
+      type: u64
+    returns:
+    - slot: 0
+      label: delegation_ids
+      type: '[]string'
+    - slot: 1
+      label: total
+      type: u64
+    executes:
+      asm:
+      - LDPTR1 $0 0x2a
+      - MAKE $0 $0
+      - OBTAIN $1 &0
+      - ACREXIST $2 $1
+      - LDPTR1 $3 0x8
+      - JUMPI $3 $2
+      - YIELD $0 &0
+      - TERM
+      - DEST
+      - ALOAD $2 $1 &5
+      - CARGS $3
+      - SETFLD $3 &0 $2
+      - OBTAIN $4 &1
+      - SETFLD $3 &1 $4
+      - OBTAIN $4 &2
+      - SETFLD $3 &2 $4
+      - LDPTR1 $4 0x4f
+      - CALLC $3 $4 $3
+      - GETFLD $4 $3 &0
+      - GETFLD $3 $3 &1
+      - COPY $0 $4
+      - YIELD $3 &1
+      - DUMP $2
+      - YIELD $0 &0
+    catches: []
+- ptr: 69
+  deps:
+  - 57
+  kind: callable
+  data:
+    name: IsEnlisted
+    mode: static
+    kind: invoke
+    accepts:
+    - slot: 0
+      label: address
+      type: identifier
+    returns:
+    - slot: 0
+      label: enlisted
+      type: bool
+    executes:
+      asm:
+      - OBTAIN $0 &0
+      - ACREXIST $1 $0
+      - LDPTR1 $2 0x5
+      - JUMPI $2 $1
+      - TERM
+      - DEST
+      - ALOAD $1 $0 &0
+      - GATHER $2 $1
+      - YIELD $2 &0
+      - DUMP $1
+    catches: []
+- ptr: 70
+  deps:
+  - 56
+  kind: callable
+  data:
+    name: GetIdentity
+    mode: static
+    kind: invoke
+    accepts: []
+    returns:
+    - slot: 0
+      label: identity
+      type: identifier
+    executes:
+      asm:
+      - LLOAD $0 &0
+      - YIELD $0 &0
+      - DUMP $0
+    catches: []
+- ptr: 71
+  deps:
+  - 80
+  kind: callable
+  data:
+    name: ControllerOf
+    mode: static
+    kind: invoke
+    accepts:
+    - slot: 0
+      label: did
+      type: string
+    returns:
+    - slot: 0
+      label: controller
+      type: identifier
+    executes:
+      asm:
+      - CARGS $0
+      - LDPTR1 $1 0x50
+      - CALLC $0 $1 $0
+      - GETFLD $0 $0 &0
+      - ORIGIN $1
+      - LDPTR1 $2 0x3a
+      - XBIND $0 $2 $0 $1
+      - CARGS $1
+      - OBTAIN $2 &0
+      - SETFLD $1 &0 $2
+      - CALLX $0 $0 &0 $1
+      - GETFLD $0 $0 &0
+      - YIELD $0 &0
+    catches: []
+- ptr: 72
+  deps:
+  - 80
+  kind: callable
+  data:
+    name: IsActive
+    mode: static
+    kind: invoke
+    accepts:
+    - slot: 0
+      label: did
+      type: string
+    returns:
+    - slot: 0
+      label: active
+      type: bool
+    executes:
+      asm:
+      - CARGS $0
+      - LDPTR1 $1 0x50
+      - CALLC $0 $1 $0
+      - GETFLD $0 $0 &0
+      - ORIGIN $1
+      - LDPTR1 $2 0x3a
+      - XBIND $0 $2 $0 $1
+      - CARGS $1
+      - OBTAIN $2 &0
+      - SETFLD $1 &0 $2
+      - CALLX $0 $0 &1 $1
+      - GETFLD $0 $0 &0
+      - YIELD $0 &0
+    catches: []
+- ptr: 73
+  deps:
+  - 31
+  - 49
+  - 77
+  - 78
+  - 75
+  - 57
+  kind: callable
+  data:
+    name: LoadGrant
+    mode: static
+    kind: internal
+    accepts:
+    - slot: 0
+      label: id
+      type: string
+    returns:
+    - slot: 0
+      label: found
+      type: bool
+    - slot: 1
+      label: grant
+      type: class.Grant
+    executes:
+      asm:
+      - LDPTR1 $0 0x31
+      - MAKE $0 $0
+      - CARGS $1
+      - OBTAIN $2 &0
+      - SETFLD $1 &0 $2
+      - LDPTR1 $3 0x4d
+      - CALLC $1 $3 $1
+      - GETFLD $1 $1 &0
+      - LDPTR1 $3 0x1f
+      - LMAKE $3 $3
+      - EQ $1 $1 $3
+      - LDPTR1 $3 0x12
+      - JUMPI $3 $1
+      - PMAKE $1 &1
+      - YIELD $1 &0
+      - YIELD $1 &0
+      - YIELD $0 &1
+      - TERM
+      - DEST
+      - CARGS $1
+      - SETFLD $1 &0 $2
+      - LDPTR1 $3 0x4e
+      - CALLC $1 $3 $1
+      - GETFLD $1 $1 &0
+      - ACREXIST $3 $1
+      - LDPTR1 $4 0x20
+      - JUMPI $4 $3
+      - PMAKE $3 &1
+      - YIELD $3 &0
+      - YIELD $3 &0
+      - YIELD $0 &1
+      - TERM
+      - DEST
+      - PMAKE $3 &1
+      - LDPTR1 $4 0x31
+      - MAKE $4 $4
+      - ALOAD $5 $1 &1
+      - HASKEY $6 $5 $2
+      - NOT $6 $6
+      - LDPTR1 $7 0x2e
+      - JUMPI $7 $6
+      - PMAKE $6 &1
+      - NOT $6 $6
+      - COPY $3 $6
+      - GETKEY $6 $5 $2
+      - GATHER $4 $6
+      - DEST
+      - DUMP $5
+      - NOT $1 $3
+      - NOT $1 $1
+      - LDPTR1 $3 0x39
+      - JUMPI $3 $1
+      - PMAKE $1 &1
+      - YIELD $1 &0
+      - YIELD $1 &0
+      - YIELD $0 &1
+      - TERM
+      - DEST
+      - GETFLD $1 $4 &9
+      - PMAKE $3 &5
+      - EQ $1 $1 $3
+      - NOT $1 $1
+      - LDPTR1 $3 0x48
+      - JUMPI $3 $1
+      - GETFLD $1 $4 &9
+      - CARGS $3
+      - SETFLD $3 &0 $2
+      - LDPTR1 $2 0x4b
+      - CALLC $2 $2 $3
+      - GETFLD $2 $2 &0
+      - COPY $1 $2
+      - SETFLD $4 &9 $1
+      - DEST
+      - PMAKE $1 &1
+      - NOT $1 $1
+      - YIELD $1 &0
+      - COPY $0 $4
+      - YIELD $0 &1
+    catches: []
+- ptr: 74
+  deps:
+  - 32
+  - 50
+  - 77
+  - 78
+  - 75
+  - 57
+  kind: callable
+  data:
+    name: LoadDelegation
+    mode: static
+    kind: internal
+    accepts:
+    - slot: 0
+      label: id
+      type: string
+    returns:
+    - slot: 0
+      label: found
+      type: bool
+    - slot: 1
+      label: delegation
+      type: class.Delegation
+    executes:
+      asm:
+      - LDPTR1 $0 0x32
+      - MAKE $0 $0
+      - CARGS $1
+      - OBTAIN $2 &0
+      - SETFLD $1 &0 $2
+      - LDPTR1 $3 0x4d
+      - CALLC $1 $3 $1
+      - GETFLD $1 $1 &0
+      - LDPTR1 $3 0x20
+      - LMAKE $3 $3
+      - EQ $1 $1 $3
+      - LDPTR1 $3 0x12
+      - JUMPI $3 $1
+      - PMAKE $1 &1
+      - YIELD $1 &0
+      - YIELD $1 &0
+      - YIELD $0 &1
+      - TERM
+      - DEST
+      - CARGS $1
+      - SETFLD $1 &0 $2
+      - LDPTR1 $3 0x4e
+      - CALLC $1 $3 $1
+      - GETFLD $1 $1 &0
+      - ACREXIST $3 $1
+      - LDPTR1 $4 0x20
+      - JUMPI $4 $3
+      - PMAKE $3 &1
+      - YIELD $3 &0
+      - YIELD $3 &0
+      - YIELD $0 &1
+      - TERM
+      - DEST
+      - PMAKE $3 &1
+      - LDPTR1 $4 0x32
+      - MAKE $4 $4
+      - ALOAD $5 $1 &4
+      - HASKEY $6 $5 $2
+      - NOT $6 $6
+      - LDPTR1 $7 0x2e
+      - JUMPI $7 $6
+      - PMAKE $6 &1
+      - NOT $6 $6
+      - COPY $3 $6
+      - GETKEY $6 $5 $2
+      - GATHER $4 $6
+      - DEST
+      - DUMP $5
+      - NOT $1 $3
+      - NOT $1 $1
+      - LDPTR1 $3 0x39
+      - JUMPI $3 $1
+      - PMAKE $1 &1
+      - YIELD $1 &0
+      - YIELD $1 &0
+      - YIELD $0 &1
+      - TERM
+      - DEST
+      - GETFLD $1 $4 &b
+      - PMAKE $3 &5
+      - EQ $1 $1 $3
+      - NOT $1 $1
+      - LDPTR1 $3 0x48
+      - JUMPI $3 $1
+      - GETFLD $1 $4 &b
+      - CARGS $3
+      - SETFLD $3 &0 $2
+      - LDPTR1 $2 0x4b
+      - CALLC $2 $2 $3
+      - GETFLD $2 $2 &0
+      - COPY $1 $2
+      - SETFLD $4 &b $1
+      - DEST
+      - PMAKE $1 &1
+      - NOT $1 $1
+      - YIELD $1 &0
+      - COPY $0 $4
+      - YIELD $0 &1
+    catches: []
+- ptr: 75
+  deps:
+  - 56
+  kind: callable
+  data:
+    name: RevokedAt
+    mode: static
+    kind: internal
+    accepts:
+    - slot: 0
+      label: id
+      type: string
+    returns:
+    - slot: 0
+      label: revoked_at
+      type: u64
+    executes:
+      asm:
+      - LLOAD $0 &1
+      - OBTAIN $1 &0
+      - HASKEY $2 $0 $1
+      - NOT $2 $2
+      - LDPTR1 $3 0x8
+      - JUMPI $3 $2
+      - GETKEY $1 $0 $1
+      - YIELD $1 &0
+      - DEST
+      - DUMP $0
+    catches: []
+- ptr: 76
+  deps:
+  - 56
+  kind: callable
+  data:
+    name: RecordElsewhere
+    mode: dynamic
+    kind: internal
+    accepts:
+    - slot: 0
+      label: id
+      type: string
+    - slot: 1
+      label: now
+      type: u64
+    returns: []
+    executes:
+      asm:
+      - LOGIC $0
+      - LLOAD $1 &1
+      - VOLPAY $1 $0
+      - OBTAIN $0 &1
+      - OBTAIN $2 &0
+      - SETKEY $1 $2 $0
+      - STORE $1
+    catches: []
+- ptr: 77
+  deps:
+  - 33
+  - 7
+  - 17
+  - 31
+  - 24
+  - 32
+  kind: callable
+  data:
+    name: PrefixOf
+    mode: pure
+    kind: internal
+    accepts:
+    - slot: 0
+      label: id
+      type: string
+    returns:
+    - slot: 0
+      label: prefix
+      type: string
+    executes:
+      asm:
+      - OBTAIN $0 &0
+      - LEN $1 $0
+      - LDPTR1 $2 0xa
+      - LMAKE $2 $2
+      - PMAKE $3 &5
+      - INCR $3
+      - ADD $2 $2 $3
+      - GT $1 $1 $2
+      - LDPTR1 $2 0xf
+      - JUMPI $2 $1
+      - LDPTR1 $1 0x21
+      - LMAKE $1 $1
+      - YIELD $1 &0
+      - YIELD $1 &0
+      - TERM
+      - DEST
+      - PMAKE $1 &5
+      - LDPTR1 $2 0x7
+      - LMAKE $2 $2
+      - CARGS $3
+      - SETFLD $3 &0 $1
+      - SETFLD $3 &1 $2
+      - CALLM $0 $0 &1a $3
+      - GETFLD $0 $0 &0
+      - LDPTR1 $1 0x11
+      - LMAKE $1 $1
+      - EQ $1 $0 $1
+      - NOT $1 $1
+      - LDPTR1 $2 0x23
+      - JUMPI $2 $1
+      - LDPTR1 $1 0x1f
+      - LMAKE $1 $1
+      - YIELD $1 &0
+      - YIELD $1 &0
+      - TERM
+      - DEST
+      - LDPTR1 $1 0x18
+      - LMAKE $1 $1
+      - EQ $0 $0 $1
+      - NOT $0 $0
+      - LDPTR1 $1 0x2f
+      - JUMPI $1 $0
+      - LDPTR1 $0 0x20
+      - LMAKE $0 $0
+      - YIELD $0 &0
+      - YIELD $0 &0
+      - TERM
+      - DEST
+      - LDPTR1 $0 0x21
+      - LMAKE $0 $0
+      - YIELD $0 &0
+    catches: []
+- ptr: 78
+  kind: callable
+  data:
+    name: OwnerOf
+    mode: pure
+    kind: internal
+    accepts:
+    - slot: 0
+      label: id
+      type: string
+    returns:
+    - slot: 0
+      label: owner
+      type: identifier
+    executes:
+      asm:
+      - OBTAIN $0 &0
+      - LDPTR1 $1 0x7
+      - LMAKE $1 $1
+      - LDPTR1 $2 0xa
+      - LMAKE $2 $2
+      - CARGS $3
+      - SETFLD $3 &0 $1
+      - SETFLD $3 &1 $2
+      - CALLM $0 $0 &1a $3
+      - GETFLD $0 $0 &0
+      - ID $0 $0
+      - YIELD $0 &0
+    catches: []
+- ptr: 79
+  deps:
+  - 42
+  - 46
+  kind: callable
+  data:
+    name: Page
+    mode: pure
+    kind: internal
+    accepts:
+    - slot: 0
+      label: ids
+      type: '[]string'
+    - slot: 1
+      label: offset
+      type: u64
+    - slot: 2
+      label: limit
+      type: u64
+    returns:
+    - slot: 0
+      label: page
+      type: '[]string'
+    - slot: 1
+      label: total
+      type: u64
+    executes:
+      asm:
+      - LDPTR1 $0 0x2a
+      - MAKE $0 $0
+      - OBTAIN $1 &0
+      - SIZE $2 $1
+      - PMAKE $3 &5
+      - LDPTR1 $4 0x2a
+      - VMAKE $3 $4 $3
+      - OBTAIN $4 &2
+      - COPY $5 $4
+      - LDPTR1 $6 0x2e
+      - MAKE $6 $6
+      - PMAKE $7 &5
+      - PMAKE $8 &5
+      - DEST
+      - EQ $9 $5 $8
+      - LDPTR1 $a 0x16
+      - JUMPI $a $9
+      - APPEND $6 $7
+      - INCR $7
+      - DECR $5
+      - LDPTR1 $a 0xd
+      - JUMP $a
+      - DEST
+      - PMAKE $5 &5
+      - SIZE $7 $6
+      - DEST
+      - LT $8 $5 $7
+      - NOT $8 $8
+      - LDPTR1 $9 0x2d
+      - JUMPI $9 $8
+      - OBTAIN $8 &1
+      - ADD $a $8 $5
+      - LT $a $a $2
+      - LDPTR1 $b 0x25
+      - JUMPI $b $a
+      - LDPTR1 $a 0x2d
+      - JUMP $a
+      - DEST
+      - ADD $8 $8 $5
+      - GETIDX $8 $1 $8
+      - APPEND $3 $8
+      - DEST
+      - INCR $5
+      - LDPTR1 $9 0x19
+      - JUMP $9
+      - DEST
+      - COPY $0 $3
+      - YIELD $2 &1
+      - YIELD $0 &0
+    catches: []
+- ptr: 80
+  deps:
+  - 56
+  kind: callable
+  data:
+    name: IdentityId
+    mode: static
+    kind: internal
+    accepts: []
+    returns:
+    - slot: 0
+      label: identity
+      type: identifier
+    executes:
+      asm:
+      - LLOAD $0 &0
+      - GATHER $1 $0
+      - YIELD $1 &0
+      - DUMP $0
+    catches: []
+- ptr: 81
+  deps:
+  - 34
+  - 57
+  kind: callable
+  data:
+    name: RequireEnlisted
+    mode: static
+    kind: internal
+    accepts: []
+    returns: []
+    executes:
+      asm:
+      - PMAKE $0 &1
+      - ORIGIN $1
+      - ALOAD $2 $1 &0
+      - GATHER $3 $2
+      - COPY $0 $3
+      - DUMP $2
+      - LDPTR1 $1 0xb
+      - JUMPI $1 $0
+      - LDPTR1 $0 0x22
+      - LMAKE $0 $0
+      - THROW $0
+      - DEST
+    catches: []
+- ptr: 82
+  deps:
+  - 80
+  kind: callable
+  data:
+    name: IsController
+    mode: static
+    kind: internal
+    accepts:
+    - slot: 0
+      label: did
+      type: string
+    returns:
+    - slot: 0
+      label: ok
+      type: bool
+    executes:
+      asm:
+      - CARGS $0
+      - LDPTR1 $1 0x50
+      - CALLC $0 $1 $0
+      - GETFLD $0 $0 &0
+      - ORIGIN $1
+      - LDPTR1 $2 0x3a
+      - XBIND $0 $2 $0 $1
+      - CARGS $1
+      - OBTAIN $2 &0
+      - SETFLD $1 &0 $2
+      - CALLX $0 $0 &0 $1
+      - GETFLD $0 $0 &0
+      - ORIGIN $1
+      - EQ $0 $0 $1
+      - YIELD $0 &0
+    catches: []
+- ptr: 83
+  deps:
+  - 35
+  - 36
+  - 80
+  kind: callable
+  data:
+    name: AuthorizeDid
+    mode: static
+    kind: internal
+    accepts:
+    - slot: 0
+      label: did
+      type: string
+    returns: []
+    executes:
+      asm:
+      - CARGS $0
+      - LDPTR1 $1 0x50
+      - CALLC $0 $1 $0
+      - GETFLD $0 $0 &0
+      - ORIGIN $1
+      - LDPTR1 $2 0x3a
+      - XBIND $0 $2 $0 $1
+      - CARGS $1
+      - OBTAIN $2 &0
+      - SETFLD $1 &0 $2
+      - CALLX $1 $0 &0 $1
+      - GETFLD $1 $1 &0
+      - ORIGIN $3
+      - EQ $1 $1 $3
+      - LDPTR1 $3 0x13
+      - JUMPI $3 $1
+      - LDPTR1 $1 0x23
+      - LMAKE $1 $1
+      - THROW $1
+      - DEST
+      - CARGS $1
+      - SETFLD $1 &0 $2
+      - CALLX $0 $0 &1 $1
+      - GETFLD $0 $0 &0
+      - LDPTR1 $1 0x1d
+      - JUMPI $1 $0
+      - LDPTR1 $0 0x24
+      - LMAKE $0 $0
+      - THROW $0
+      - DEST
+    catches: []
+- ptr: 84
+  deps:
+  - 37
+  - 38
+  - 39
+  - 40
+  - 48
+  kind: callable
+  data:
+    name: CheckScopeLimits
+    mode: pure
+    kind: internal
+    accepts:
+    - slot: 0
+      label: scope
+      type: '[]class.ScopeEntry'
+    returns: []
+    executes:
+      asm:
+      - OBTAIN $0 &0
+      - SIZE $1 $0
+      - LDPTR1 $2 0x1
+      - LMAKE $2 $2
+      - GT $1 $1 $2
+      - NOT $1 $1
+      - LDPTR1 $2 0xb
+      - JUMPI $2 $1
+      - LDPTR1 $1 0x25
+      - LMAKE $1 $1
+      - THROW $1
+      - DEST
+      - PMAKE $1 &5
+      - SIZE $2 $0
+      - DEST
+      - LT $3 $1 $2
+      - NOT $3 $3
+      - LDPTR1 $4 0x3a
+      - JUMPI $4 $3
+      - GETIDX $3 $0 $1
+      - GETFLD $5 $3 &1
+      - SIZE $5 $5
+      - LDPTR1 $6 0x1
+      - LMAKE $6 $6
+      - GT $5 $5 $6
+      - NOT $5 $5
+      - LDPTR1 $6 0x24
+      - JUMPI $6 $5
+      - LDPTR1 $5 0x26
+      - LMAKE $5 $5
+      - STR $6 $1
+      - JOIN $5 $5 $6
+      - LDPTR1 $6 0x27
+      - LMAKE $6 $6
+      - JOIN $5 $5 $6
+      - THROW $5
+      - DEST
+      - GETFLD $5 $3 &2
+      - SIZE $5 $5
+      - LDPTR1 $6 0x2
+      - LMAKE $6 $6
+      - GT $5 $5 $6
+      - NOT $5 $5
+      - LDPTR1 $6 0x35
+      - JUMPI $6 $5
+      - LDPTR1 $5 0x26
+      - LMAKE $5 $5
+      - STR $6 $1
+      - JOIN $5 $5 $6
+      - LDPTR1 $6 0x28
+      - LMAKE $6 $6
+      - JOIN $5 $5 $6
+      - THROW $5
+      - DEST
+      - DEST
+      - INCR $1
+      - LDPTR1 $4 0xe
+      - JUMP $4
+      - DEST
+    catches: []
+- ptr: 85
+  deps:
+  - 41
+  kind: callable
+  data:
+    name: Now
+    mode: pure
+    kind: internal
+    accepts: []
+    returns:
+    - slot: 0
+      label: now
+      type: u64
+    executes:
+      asm:
+      - TIMESTAMP $0
+      - LDPTR1 $1 0x29
+      - LMAKE $1 $1
+      - DIV $0 $0 $1
+      - YIELD $0 &0
+    catches: []
